@@ -4,6 +4,7 @@
 ![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/4c583894-e124-4606-a971-c9925bdf23ad)
 
 **Admin Login Page**
+
 ![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/52b69f80-9912-418b-b6e0-df47c4c2447c)
 
 **Admin Dashboard**
