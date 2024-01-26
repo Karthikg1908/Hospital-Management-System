@@ -1,0 +1,21 @@
+Patient/User Login Details
+Username:- anjan@gmail.com  Password:- anjan@19
+Username:- varsha@gmail.com  Password:- varsha@19
+Username:- pranitha@gmail.com  Password:- pranitha@19
+Username:- girish@gmail.com  Password:- girish@19
+
+Doctor Login Details
+Username:- vivek@gmail.com  Password:- vivek@19
+Username:- sumanth@gmail.com  Password:- sumanth@19
+Username:- mohan@gmail.com  Password:- mohan@19
+Username:- baswaraj@gmail.com  Password:- baswaraj@19
+Username:- shilpa@gmail.com  Password:- shilpa@19
+Username:- aditi@gmail.com  Password:- aditi@19
+Username:- archana@gmail.com  Password:- archana@19
+Username:- santosh@gmail.com  Password:- santosh@19
+Username:- chaitra@gmail.com  Password:- chaitra@19
+Username:- karthik@gmail.com  Password:- karthik@19
+Username:- murali@gmail.com  Password:- murali@19
+
+Admin Login Details
+Username:- admin  Password:- karthi@19
