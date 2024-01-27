@@ -19,6 +19,8 @@ $query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,
 	if($query)
 	{
 		echo "<script>alert('Your appointment successfully booked');</script>";
+		header("Location: app.php");
+        exit;
 	}
 
 }
@@ -27,7 +29,6 @@ $query=mysqli_query($con,"insert into appointment(doctorSpecialization,doctorId,
 <html lang="en">
 	<head>
 		<title>User  | Book Appointment</title>
-	
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -54,8 +55,6 @@ function getdoctor(val) {
 	});
 }
 </script>	
-
-
 <script>
 function getfee(val) {
 	$.ajax({
@@ -67,11 +66,7 @@ function getfee(val) {
 	}
 	});
 }
-</script>	
-
-
-
-
+</script>
 	</head>
 	<body>
 		<div id="app">		
@@ -133,12 +128,7 @@ while($row=mysqli_fetch_array($ret))
 																<?php } ?>
 																
 															</select>
-														</div>
-
-
-
-
-														<div class="form-group">
+														</div><div class="form-group">
 															<label for="doctor">
 																Doctors
 															</label>
@@ -146,11 +136,6 @@ while($row=mysqli_fetch_array($ret))
 						<option value="">Select Doctor</option>
 						</select>
 														</div>
-
-
-
-
-
 														<div class="form-group">
 															<label for="consultancyfees">
 																Consultancy Fees
@@ -184,32 +169,20 @@ while($row=mysqli_fetch_array($ret))
 												</div>
 											</div>
 										</div>
-											
 											</div>
 										</div>
-									
 									</div>
-								</div>
-							
+								</div>							
 						<!-- end: BASIC EXAMPLE -->
-			
-					
-					
-						
-						
-					
 						<!-- end: SELECT BOXES -->
-						
 					</div>
 				</div>
 			</div>
 			<!-- start: FOOTER -->
 	<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
+			<!-- end: FOOTER -->		
 			<!-- start: SETTINGS -->
-	<?php include('include/setting.php');?>
-			
+	<?php include('include/setting.php');?>			
 			<!-- end: SETTINGS -->
 		</div>
 		<!-- start: MAIN JAVASCRIPTS -->
@@ -250,8 +223,6 @@ while($row=mysqli_fetch_array($ret))
         </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
 	</body>
 </html>
