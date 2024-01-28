@@ -21,12 +21,13 @@ if (strlen($_SESSION['id']) == 0) {
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
     <script>
-    var app = angular.module("calcApp", []);
-    app.controller("calcCntrl", function ($scope, $timeout) {
-        $scope.pay = function () {
-            $scope.success1=true;
-            // Example usage
-            $scope.isValidUPI = checkUPID($scope.upiId);
+        var app = angular.module("calcApp", []);
+        app.controller("calcCntrl", function ($scope, $timeout) {
+            var randomTransactionId = '';
+            for (var i = 0; i < 12; i++) {
+                randomTransactionId += Math.floor(Math.random() * 10);
+            }
+            $scope.transactionId = randomTransactionId;
 
             function checkUPID(upiId) {
                 // Regular expression for UPI ID validation
@@ -35,55 +36,57 @@ if (strlen($_SESSION['id']) == 0) {
                 return upiRegex.test(upiId);
             }
 
-            // Simulate a 5-second processing delay
-            $scope.processing = true;
-            $timeout(function () {
-                // Output: true or false
+            $scope.validateUPI = function () {
+                // Example usage
+                $scope.isValidUPI = checkUPID($scope.upiId);
+
                 if ($scope.isValidUPI) {
-                    $scope.success = true;
-                    var randomTransactionId = '';
-                    for (var i = 0; i < 12; i++) {
-                        randomTransactionId += Math.floor(Math.random() * 10);
-                    }
-                    $scope.transactionId = randomTransactionId;
+                    $scope.failupi = false;
                 } else {
                     $scope.failupi = true;
                 }
-                $scope.processing = false; // Turn off the processing indicator
-            }, 5000);
-        };
-    });
-</script>
+            }
+
+            $scope.pay = function () {
+                $scope.success1 = true;
+                $scope.success = true;
+                $scope.processing = true;
+                $timeout(function () {
+                    $scope.processing = false; // Turn off the processing indicator
+                }, 5000);
+            }
+        });
+    </script>
 
 
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-<script>
-    // Function to capture screenshot and initiate download
-    function captureScreenshot() {
-        html2canvas(document.querySelector(".print-content")).then(canvas => {
-            var link = document.createElement('a');
-            link.href = canvas.toDataURL();
-            link.download = 'screenshot.png';
-            link.click();
-        });
-    }
-</script>
-
+    <script>
+         // Simulating loading completion after 5 seconds
+         
+        function captureScreenshot() {
+            html2canvas(document.querySelector(".print-content")).then(canvas => {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'screenshot.png';
+                link.click();
+            });
+           
+        }
+    </script>
+    <script>setTimeout(function () {
+            document.getElementById('messageBox').style.display = 'block';
+        }, 5000);</script>
     <style>
-        .payment-option {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .payment-option.selected {
-            background-color: #007bff;
-            color: #fff;
-            border-color: #007bff;
-        }
-		.loading-container {
+       .payment-option {
+        text-align: center;
+        margin-top: 20px;
+        display: none; /* Initially hide all payment options */
+    }
+
+    .payment-option i {
+        font-size: 36px;
+    }
+        .loading-container {
             text-align: center;
         }
 
@@ -101,81 +104,17 @@ if (strlen($_SESSION['id']) == 0) {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-		.bn5 {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
 
-.bn5:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowingbn5 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
-}
-
-@keyframes glowingbn5 {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.bn5:active {
-  color: #000;
-}
-
-.bn5:active:after {
-  background: transparent;
-}
-
-.bn5:hover:before {
-  opacity: 1;
-}
-
-.bn5:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #191919;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
+        .message-box {
+            display: none;
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+		
     </style>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
@@ -281,6 +220,31 @@ if (strlen($_SESSION['id']) == 0) {
                                                         <th>UPI Transaction ID</th>
                                                         <td>{{ transactionId }}</td>
                                                     </tr>
+                                                    <tr ng-show="success">
+                                                        <th>UPI Payment App</th>
+                                                        <td>{{ paymentAmount }}</td>
+                                                    </tr>
+                                                    </main>
+													<tr><td> </td></tr>
+                                                    <tr>
+    <td></td>
+    <td style="text-align: center;">
+        <button id="printButton" onclick="captureScreenshot()" ng-show="success" style="background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;">
+            Print Appointment Receipt
+        </button>
+    </td>
+</tr>
+
                                         </thead>
                                         <tbody>
                                     <?php
@@ -292,36 +256,61 @@ if (strlen($_SESSION['id']) == 0) {
                                 </div>
                             </div>
                         </div>
-                    </main>
-                    <form ng-show="!success1">
-                    <div>
-            <div>
-    <label style="font-size: 20px; color: #333; font-weight: bold;">Select Payment APP:</label>
-    
-</div>
-<div class="payment-option" id="paytm" onclick="selectPaymentOption('paytm')">Paytm</div>
-    <div class="payment-option" id="googlepay" onclick="selectPaymentOption('googlepay')">Google Pay</div>
-    <div class="payment-option" id="phonepay" onclick="selectPaymentOption('phonepay')">Phone Pay</div>
-    <input type="hidden" id="selectedPaymentOption" name="selectedPaymentOption">
+                    <form name="form" ng-show="!success1">
+                    <b ng-init="paymentAmount = 'Google Pay'">
+                        <label style="font-size: 20px; color: #333; font-weight: bold;">Select Payment APP : </label></b>
+                    <select ng-model="paymentAmount" style="background-color: #f0f0f0; font-family: 'Times New Roman'; color: #333; padding: 5px; border-radius: 20px;">
+    <option value="Paytm">Paytm</option>
+    <option value="Google Pay">Google Pay</option>
+    <option value="Phone Pay">Phone Pay</option>
+    <option value="Amazon Pay">Amazon Pay</option>
+    <option value="BHIM">BHIM</option>
+    <option value="MobiKwik">MobiKwik</option>
+</select>
 
-    <script>
-        function selectPaymentOption(option) {
-            var paymentOptions = document.querySelectorAll('.payment-option');
-            paymentOptions.forEach(function (element) {
-                element.classList.remove('selected');
-            });
-            document.getElementById(option).classList.add('selected');
-            document.getElementById('selectedPaymentOption').value = option;
-        }
-    </script>
+<br><br>
+
+<div class="payment-option" ng-show="paymentAmount === 'Paytm'">
+    <i class="fab fa-paypal"></i>
+    <span>Paytm</span>
+</div>
+
+<div class="payment-option" ng-show="paymentAmount === 'Google Pay'">
+    <i class="fab fa-google-pay"></i>
+    <span>Google Pay</span>
+</div>
+
+<div class="payment-option" ng-show="paymentAmount === 'Phone Pay'">
+    <i class="fab fa-phone-alt"></i>
+    <span>Phone Pay</span>
+</div>
+
+<div class="payment-option" ng-show="paymentAmount === 'Amazon Pay'">
+    <i class="fab fa-amazon-pay"></i>
+    <span>Amazon Pay</span>
+</div>
+
+<div class="payment-option" ng-show="paymentAmount === 'BHIM'">
+    <i class="fab fa-bhim"></i>
+    <span>BHIM</span>
+</div>
+
+<div class="payment-option" ng-show="paymentAmount === 'MobiKwik'">
+    <i class="fab fa-mobikwik"></i>
+    <span>MobiKwik</span>
+</div>
 
             
-    Enter a UPI ID <input type="text" placeholder="UPI ID" ng-model="upiId" required>
-    <button ng-click="pay()" ng-disabled="!upiId" class="bn5">Pay</button>
-<span  style="color:red;"ng-show="failupi">Please enter the corect UPI ID</span>
-</form>
+<input type="text" ng-model="upiId" placeholder="Enter UPI ID" ng-change="validateUPI()">
 
-                    <button id="printButton" onclick="captureScreenshot()" ng-show="success">Print Appointment Receipt</button>
+
+
+<button ng-click="pay()" ng-disabled="failupi">Pay</button>
+<span ng-if="failupi" style="color: red; font-weight: bold;">Invalid UPI ID</span>
+
+</form>
+<div ng-show="!processing">
+                    
                 </div>
             </div>
         </div>
@@ -354,7 +343,6 @@ if (strlen($_SESSION['id']) == 0) {
             FormElements.init();
         });
     </script>
-	
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>
