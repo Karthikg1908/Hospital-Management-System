@@ -51,13 +51,16 @@
 
 ![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/e054e4de-3775-4c69-8dac-03ca4b45522e)
 
-***USER | APPOINTMENT RECEIPT**
+![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/7e241d03-f6e1-4cca-bcff-69588ab3a206)
 
-![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/77a0d92c-3fde-4d9f-ae21-1ef8b1441bf1)
+![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/481f73a6-a5a1-4f38-87e3-dcab6d5f446b)
 
-***USER | APPOINTMENT RECEIPT Loading**
+![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/07219741-63a4-4702-b7fb-a262a8889079)
 
-![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/c5487d93-e36d-41d3-9c7d-3e41dc43f85a)
+**DOWNLOADED RECEIPT**
+
+![screenshot (3)](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/ffa17dde-3bea-4b9d-bcd0-982cca0ab6c4)
+
 
 ***USER | APPOINTMENT RECEIPT Download**
 
