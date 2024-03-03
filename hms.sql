@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2024 at 04:19 AM
+-- Generation Time: Mar 02, 2024 at 03:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -131,7 +131,8 @@ INSERT INTO `doctorslog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logou
 (28, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 02:53:21', NULL, 1),
 (29, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 02:56:58', NULL, 1),
 (30, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:06:17', NULL, 1),
-(31, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:18:44', '26-01-2024 08:48:48 AM', 1);
+(31, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:18:44', '26-01-2024 08:48:48 AM', 1),
+(32, 13, 'karthik@gmail.com', 0x3a3a3100000000000000000000000000, '2024-03-01 02:31:53', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,8 @@ CREATE TABLE `tblcontactus` (
 
 INSERT INTO `tblcontactus` (`id`, `fullname`, `email`, `contactno`, `message`, `PostingDate`, `AdminRemark`, `LastupdationDate`, `IsRead`) VALUES
 (1, 'Anuj kumar', 'anujk30@test.com', 1425362514, 'This is for testing purposes.   This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.This is for testing purposes.', '2022-10-30 16:52:03', NULL, NULL, NULL),
-(2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', '2022-11-06 13:13:41', 'Contact the patient', '2022-11-06 13:13:57', 1);
+(2, 'Anuj kumar', 'ak@gmail.com', 1111122233, 'This is for testing', '2022-11-06 13:13:41', 'Contact the patient', '2022-11-06 13:13:57', 1),
+(3, 'Testing', 'testing@gmail.com', 8596320147, 'This is a message to check ', '2024-03-01 01:50:44', 'Solevd', '2024-03-01 01:51:09', 1);
 
 -- --------------------------------------------------------
 
@@ -212,7 +214,8 @@ CREATE TABLE `tblmedicalhistory` (
 
 INSERT INTO `tblmedicalhistory` (`ID`, `PatientID`, `BloodPressure`, `BloodSugar`, `Weight`, `Temperature`, `MedicalPres`, `CreationDate`) VALUES
 (1, 1, '80/120', '120', '85', '98', 'Test', '2022-11-06 13:19:41'),
-(2, 3, '20', '30', '40', '60', 'Normal', '2024-01-26 03:03:22');
+(2, 3, '20', '30', '40', '60', 'Normal', '2024-01-26 03:03:22'),
+(3, 5, '70/80', '50', '65', '60', 'Normal', '2024-03-01 02:33:24');
 
 -- --------------------------------------------------------
 
@@ -237,7 +240,7 @@ CREATE TABLE `tblpage` (
 
 INSERT INTO `tblpage` (`ID`, `PageType`, `PageTitle`, `PageDescription`, `Email`, `MobileNumber`, `UpdationDate`, `OpenningTime`) VALUES
 (1, 'aboutus', 'About Us', '<ul style=\"padding: 0px; margin-right: 0px; margin-bottom: 1.313em; margin-left: 1.655em;\" times=\"\" new=\"\" roman\";=\"\" font-size:=\"\" 14px;=\"\" text-align:=\"\" center;=\"\" background-color:=\"\" rgb(255,=\"\" 246,=\"\" 246);\"=\"\"><li style=\"text-align: left;\"><font color=\"#000000\">The Hospital Management System (HMS) is designed for Any Hospital to replace their existing manual, paper based system. The new system is to control the following information; patient information, room availability, staff and operating room schedules, and patient invoices. These services are to be provided in an efficient, cost effective manner, with the goal of reducing the time and resources currently required for such tasks.</font></li><li style=\"text-align: left;\"><font color=\"#000000\">A significant part of the operation of any hospital involves the acquisition, management and timely retrieval of great volumes of information. This information typically involves; patient personal information and medical history, staff information, room and ward scheduling, staff scheduling, operating theater scheduling and various facilities waiting lists. All of this information must be managed in an efficient and cost wise fashion so that an institution\'s resources may be effectively utilized HMS will automate the management of the hospital making it more efficient and error free. It aims at standardizing data, consolidating data ensuring data integrity and reducing inconsistencies.&nbsp;</font></li></ul>', NULL, NULL, '2020-05-20 07:21:52', NULL),
-(2, 'contactus', 'Contact Details', 'D-204, Hole Town South West, Delhi-110096,India', 'info@gmail.com', 1122334455, '2020-05-20 07:24:07', '9 am To 8 Pm');
+(2, 'contactus', 'Contact Details', '#19 12th A cross Kaveripura Kamakshipalya Bangalore 560079', 'HMSinfo@gmail.com', 9841253067, '2020-05-20 07:24:07', '9 am To 8 Pm');
 
 -- --------------------------------------------------------
 
@@ -264,10 +267,10 @@ CREATE TABLE `tblpatient` (
 --
 
 INSERT INTO `tblpatient` (`ID`, `Docid`, `PatientName`, `PatientContno`, `PatientEmail`, `PatientGender`, `PatientAdd`, `PatientAge`, `PatientMedhis`, `CreationDate`, `UpdationDate`) VALUES
-(1, 1, 'Amit Kumar', 1231231230, 'amitk@gmail.com', 'male', 'New Delhi india', 35, 'NA', '2022-11-06 13:18:31', NULL),
 (2, 13, 'Abhishek', 7485962013, 'abhishek@gmail.com', 'male', 'Kamaksipalya', 21, 'Normal', '2024-01-26 02:54:10', NULL),
 (3, 4, 'Raju', 7485120396, 'raju@gmail.com', 'male', 'bangalore', 20, 'Normal', '2024-01-26 03:02:30', NULL),
-(4, 4, 'anjan', 7485962013, 'anjan@gmail.com', 'male', 'bangalore', 20, 'normal', '2024-01-26 03:08:08', NULL);
+(4, 4, 'anjan', 7485962013, 'anjan@gmail.com', 'male', 'bangalore', 20, 'normal', '2024-01-26 03:08:08', NULL),
+(5, 13, 'Divya', 8596742103, 'divya@gmail.com', 'female', 'Bangalore', 20, 'Nothing', '2024-03-01 02:32:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,7 +293,7 @@ CREATE TABLE `userlog` (
 --
 
 INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`, `status`) VALUES
-(5, 1, 'johndoe12@test.com', 0x3a3a3100000000000000000000000000, '2024-01-23 14:52:07', NULL, 1),
+(5, 1, 'johndoe12@test.com', 0x3a3a3100000000000000000000000000, '2024-01-23 14:52:07', '01-03-2024 08:06:57 AM', 1),
 (6, 3, 'Prashanth@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-23 14:53:50', '23-01-2024 08:24:06 PM', 1),
 (7, NULL, 'Prashanth', 0x3a3a3100000000000000000000000000, '2024-01-23 14:54:22', NULL, 0),
 (8, 3, 'Prashanth@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-23 14:54:29', '23-01-2024 08:24:36 PM', 1),
@@ -301,7 +304,9 @@ INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`,
 (13, 7, 'girish@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 01:58:10', '26-01-2024 07:28:35 AM', 1),
 (14, 4, 'anjan@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 02:55:46', NULL, 1),
 (15, 4, 'anjan@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:00:32', NULL, 1),
-(16, 4, 'anjan@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:07:19', '26-01-2024 08:39:56 AM', 1);
+(16, 4, 'anjan@gmail.com', 0x3a3a3100000000000000000000000000, '2024-01-26 03:07:19', '26-01-2024 08:39:56 AM', 1),
+(17, 8, 'divya@gmail.com', 0x3a3a3100000000000000000000000000, '2024-03-01 02:34:33', NULL, 1),
+(18, 4, 'anjan@gmail.com', 0x3a3a3100000000000000000000000000, '2024-03-02 13:52:52', '02-03-2024 07:23:00 PM', 1);
 
 -- --------------------------------------------------------
 
@@ -326,13 +331,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fullName`, `address`, `city`, `gender`, `email`, `password`, `regDate`, `updationDate`) VALUES
-(1, 'John Doe', 'A 123 ABC Apartment GZB 201017', 'Ghaziabad', 'male', 'johndoe12@test.com', 'f925916e2754e5e03f75dd58a5733251', '2022-11-06 12:13:56', NULL),
-(2, 'Amit kumar', 'new Delhi india', 'New Delhi', 'male', 'amitk@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2022-11-06 13:15:32', NULL),
 (3, 'Prashanth', 'as', 'as', 'male', 'Prashanth@gmail.com', 'd12746246ff39c9f52fc7466cf287dcd', '2024-01-23 14:53:36', NULL),
 (4, 'Anjan', 'bangalore', 'bangalore', 'male', 'anjan@gmail.com', '38cd458a5bfb04b036725c17c656f34f', '2024-01-26 01:47:23', NULL),
 (5, 'Varsha', 'Mysore', 'Mydore', 'female', 'varsha@gmail.com', '5e275f53a4d937dc890b80e5919e22ab', '2024-01-26 01:50:53', NULL),
 (6, 'Pranitha', 'bangalore', 'bangalore', 'female', 'pranitha@gmail.com', '7a8cacb2bf0648cc67407737dfe8a0d3', '2024-01-26 01:55:15', '2024-01-26 01:56:18'),
-(7, 'Girish', 'Mysore', 'Mysore', 'male', 'girish@gmail.com', '378153728e9ce3bbc04ab696686cf578', '2024-01-26 01:57:23', '2024-01-26 01:58:28');
+(7, 'Girish', 'Mysore', 'Mysore', 'male', 'girish@gmail.com', '378153728e9ce3bbc04ab696686cf578', '2024-01-26 01:57:23', '2024-01-26 01:58:28'),
+(8, 'Divya', 'bangalore', 'bangalore', 'female', 'divya@gmail.com', 'fb97e10f3c85d8ca84a18d84291366eb', '2024-03-01 02:34:09', NULL);
 
 --
 -- Indexes for dumped tables
@@ -431,7 +435,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `doctorslog`
 --
 ALTER TABLE `doctorslog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `doctorspecilization`
@@ -443,13 +447,13 @@ ALTER TABLE `doctorspecilization`
 -- AUTO_INCREMENT for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblmedicalhistory`
 --
 ALTER TABLE `tblmedicalhistory`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblpage`
@@ -461,19 +465,19 @@ ALTER TABLE `tblpage`
 -- AUTO_INCREMENT for table `tblpatient`
 --
 ALTER TABLE `tblpatient`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
