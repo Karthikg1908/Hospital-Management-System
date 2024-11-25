@@ -1,3 +1,4 @@
+#Hospital_Management_System
 **Home Page**
 ![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/9c96ffcb-2bef-484b-a996-548fde802a26)
 ![image](https://github.com/Karthikg1908/Hospital-Management-System/assets/86306862/f960b36c-a726-4e02-8416-0284d2f1f9e9)
